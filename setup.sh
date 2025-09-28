@@ -98,7 +98,7 @@ FILES_TO_COPY=(
   "./config_files/alacritty.toml:$HOME/.config/alacritty/alacritty.toml"
   "./config_files/input.conf:$HOME/.config/hypr/input.conf"
   "./config_files/bindings.conf:$HOME/.config/hypr/bindings.conf"
-  "./config_files/lookandfeel.conf:$HOME/.config/hypr/lookandfeel.conf"
+  "./config_files/looknfeel.conf:$HOME/.config/hypr/looknfeel.conf"
   "./config_files/hyprsunset.conf:$HOME/.config/hypr/hyprsunset.conf"
   "./config_files/config.jsonc:$HOME/.config/waybar/config.jsonc"
   "./config_files/style.css:$HOME/.config/waybar/style.css"
