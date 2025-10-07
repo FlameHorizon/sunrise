@@ -118,6 +118,32 @@ done
 
 info "All configuration files were applied"
 
+# --- 4.1. REMOVE .desktop APPLICATIONS ----
+info "Applying .desktop files..."
+
+DESKTOP_FILES_TO_COPY=(
+  "./config_files/typora.desktop:$HOME/.local/share/applications/typora.desktop"
+  "./config_files/WhatsApp.desktop:$HOME/.local/share/applications/WhatsApp.desktop"
+  "./config_files/Google Photos.desktop:$HOME/.local/share/applications/Google Photos.desktop"
+  "./config_files/Google Messages.desktop:$HOME/.local/share/applications/Google Messages.desktop"
+  "./config_files/Google Contacts.desktop:$HOME/.local/share/applications/Google Contacts.desktop"
+  "./config_files/Figma.desktop:$HOME/.local/share/applications/Figma.desktop"
+  "./config_files/Docker.desktop:$HOME/.local/share/applications/Docker.desktop"
+)
+
+for pair in "${DESKTOP_FILES_TO_COPY[@]}"; do
+  SRC="${pair%%:*}"
+  DEST="${pair##*:}"
+  if [[ -f "$SRC" ]]; then
+    info "Copying $(basename "$SRC") to $DEST"
+    sudo install -D "$SRC" "$DEST"
+  else
+    warn "$SRC not found, skipping"
+  fi
+done
+
+info "All .desktop files were applied."
+
 info "Running custom configuration"
 
 info "Setting up password store for git..."
